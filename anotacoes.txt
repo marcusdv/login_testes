@@ -6,14 +6,38 @@ Passo a passo para criação de testes automatizados.
     1.3 Fazer o mapeamento de todos os elementos da tela de login.      - OK
         1.3.1 Criar os elementos com pageFactory.                       - OK
     
-2° Estruturar o arquivo de teste de login.
+2° Estruturar o arquivo de teste de Login.
     2.1 Criar um arquivo chamado LoginTest.java.                        - OK
     2.2 Fazer a herança do arquivo BaseTest.java.                       - OK
-    2.3 Criar um método inicial que saiba instanciar um PO de login.
-    2.4 Criar os testes baseados na PLanilha.
+    2.3 Criar um método inicial que saiba instanciar um PO de login.    - OK
+    2.4 Criar os testes baseados na Planilha.                           - OK
         2.4.1 Não deve logar com usuário e senha em brancos.            - OK     
         2.4.2 Não deve logar com senha em branco.                       - OK
         2.4.3 Não deve logar com e-mail em branco.                      - OK
         2.4.4 Não deve logar com e-mail e senha inválidos.              - OK                      
         2.4.5 Não deve logar com e-mail válido e senha inválida.        - OK                
-        2.4.6 Não deve logar com e-mail inválido e senha válida.                   
+        2.4.6 Não deve logar com e-mail inválido e senha válida.        - OK
+        2.4.7 Deve logar com e-mail e senha válidas.                    - OK
+
+3° Estruturar o arquivo de teste de Controle de Produtos.
+    2.1 Criar um arquivo chamado ControleTest.java.                     - OK
+    2.3 Fazer a herança do arquivo BaseTest.java.                       - OK
+    2.3 Criar método inicial par ainstanciar um PO de login.            - OK
+    2.4 Criar os testes baseados na Planilha.
+        2.4.1 Deve manter na mesma página ao clicar na logo de          - OK
+            Controle de produtos.
+        2.4.2 Deve voltar para tela de login ao clicar na opção         - FALHA
+            de voltar que esta na barra de título.
+        2.4.3 Deve trazer na tabela os últimos produtos cadastrados.    - 
+        2.4.4 Deve ter os títulos da tabela padronizados em português,  - FALHA
+            todos iniciando com letras maiúsculas.
+        2.4.5 Deve abrir uma tela de cadastro ao clicar no botão criar  - OK* (botao com problema, precisa de double click)
+        uma única vez.
+        2.4.6 Deve fechar a tela de cadastro de produto ao clicar       - OK
+            no icone de X - fechar
+        2.4.7 Deve fechar a tela de cadastro de produto ao              - OK
+            clicar no botão sair
+        2.4.8 Deve mostrar uma mensagem informando que os campos        - OK
+            são obrigatórios ao clicar em salvar sem preencher os campos com as informações do produto.
+        2.4.9 Deve fechar mensagem de erro ao clicar no icone de X q    - FALHA
+        quando a mensagem esta sendo exibida.

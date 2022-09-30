@@ -33,12 +33,10 @@ public class LoginPO extends BasePO{
         input_senha.sendKeys(senha);
         efetuar_login();
     }
-
-    // public void digitar(WebElement input, String texto){
-    //     input.clear();
-    //     input.sendKeys(texto + Keys.TAB);
-    // }
     
+    public String obter_titulo_da_pagina(){
+        return driver.getTitle();
+    }
 
     public void efetuar_login(){
         btn_entrar.click();
@@ -47,7 +45,4 @@ public class LoginPO extends BasePO{
     public String obter_mensagem(){
         return span_mensagem.getText();
     }
-
-    // form>div.alert>span
-    // form.form-login>div.alert>span
 }

@@ -1,5 +1,7 @@
 package automatizado.page;
 
+import static org.junit.Assert.assertEquals;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -20,5 +22,9 @@ public abstract class BasePO {
     protected BasePO(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
+    }
+
+    public void verificar_janela_atual_utilizando_titulo(String titulo){
+        assertEquals(driver.getTitle(), titulo);
     }
 }

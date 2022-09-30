@@ -24,7 +24,7 @@ public class LoginTest extends BaseTest{
         login_page.preencher_email_senha_e_logar("", "");
         
         String mensagem = login_page.obter_mensagem();
-        assertEquals(mensagem, "Informe usuário e senha, os campos não podem ser brancos.");
+        assertEquals("Informe usuário e senha, os campos não podem ser brancos.", mensagem);
     }
 
     @Test
@@ -32,7 +32,7 @@ public class LoginTest extends BaseTest{
         login_page.preencher_email_senha_e_logar("teste", "");
 
         String mensagem = login_page.obter_mensagem();
-        assertEquals(mensagem, "Informe usuário e senha, os campos não podem ser brancos.");
+        assertEquals("Informe usuário e senha, os campos não podem ser brancos.", mensagem);
     }
 
     @Test
@@ -40,7 +40,7 @@ public class LoginTest extends BaseTest{
         login_page.preencher_email_senha_e_logar("", "teste");
                 String mensagem = login_page.obter_mensagem();
 
-        assertEquals(mensagem, "Informe usuário e senha, os campos não podem ser brancos.");
+        assertEquals("Informe usuário e senha, os campos não podem ser brancos.", mensagem);
     }
 
     @Test
@@ -48,7 +48,7 @@ public class LoginTest extends BaseTest{
         login_page.preencher_email_senha_e_logar("teste", "teste");
         
         String mensagem = login_page.obter_mensagem();
-        assertEquals(mensagem, "E-mail ou senha inválidos");
+        assertEquals("E-mail ou senha inválidos", mensagem);
     }
 
     @Test
@@ -56,7 +56,7 @@ public class LoginTest extends BaseTest{
         login_page.preencher_email_senha_e_logar("admin@admin.com", "teste");
         
         String mensagem = login_page.obter_mensagem();
-        assertEquals(mensagem, "E-mail ou senha inválidos");
+        assertEquals("E-mail ou senha inválidos", mensagem);
     }
 
     @Test
@@ -64,13 +64,13 @@ public class LoginTest extends BaseTest{
         login_page.preencher_email_senha_e_logar("teste", "admin");
         
         String mensagem = login_page.obter_mensagem();
-        assertEquals(mensagem, "E-mail ou senha inválidos");
+        assertEquals("E-mail ou senha inválidos", mensagem);
     }
     
     @Test
     public void TC007_deve_efetuar_login_com_email_e_senha_validas(){
         login_page.preencher_email_senha_e_logar("admin@admin.com", "admin@123");
+
+        login_page.verificar_janela_atual_utilizando_titulo("Controle de Produtos");
     }
-
-
 }

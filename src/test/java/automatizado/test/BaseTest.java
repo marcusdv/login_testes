@@ -5,6 +5,7 @@ import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+// Classe base para todas as classes testes
 public abstract class BaseTest {
     protected static WebDriver driver;
     private static final String URL_BASE = "file:///C:/Users/parai/Documents/QA/controle-de-produtos/sistema/login.html";

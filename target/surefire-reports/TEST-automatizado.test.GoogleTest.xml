@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="2" failures="0" name="automatizado.test.GoogleTest" time="5.722" errors="0" skipped="0">
+<testsuite tests="2" failures="0" name="automatizado.test.GoogleTest" time="4.597" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_211\jre\bin"/>
@@ -65,6 +65,6 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="automatizado.test.GoogleTest" name="TCC001_deve_pesquisar_no_google_batata_frita" time="3.452"/>
-  <testcase classname="automatizado.test.GoogleTest" name="TCC002_deve_pesquisar_no_google_DeD" time="2.27"/>
+  <testcase classname="automatizado.test.GoogleTest" name="TCC001_deve_pesquisar_no_google_batata_frita" time="2.468"/>
+  <testcase classname="automatizado.test.GoogleTest" name="TCC002_deve_pesquisar_no_google_DeD" time="2.129"/>
 </testsuite>

@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+// Elementos da página Controle de Produtos e métodos para testes.
 public class ControleDeProdutoPO extends BasePO{
 
     @FindBy(css = ".navbar-brand")
@@ -31,6 +32,12 @@ public class ControleDeProdutoPO extends BasePO{
 
     @FindBy(css = "#quantidade")
     public WebElement input_quantidade;
+    
+    @FindBy(css = "#valor")
+    public WebElement input_valor;
+
+    @FindBy(css = "tbody>tr")
+    public WebElement lista_de_produtos_ja_cadastrados;
 
     @FindBy(css = "#data")
     public WebElement input_data;
@@ -54,7 +61,6 @@ public class ControleDeProdutoPO extends BasePO{
 
     public ControleDeProdutoPO(WebDriver driver) {
         super(driver);
-        //TODO Auto-generated constructor stub
     }
 
     /**
@@ -70,6 +76,7 @@ public class ControleDeProdutoPO extends BasePO{
         assertEquals("Produto", titulo_text);
     }
     
+    // Na janela de ccadastrar produtos há o botão Sair e o "X". Aqui você escolhe 1 para ser clicado.
     public void fechar_janela_com_botao_escolhido(WebElement botao){
         abrir_janela_de_cadastro_de_produtos();
         verifica_se_esta_na_janela_cadastro_produto();
@@ -77,10 +84,9 @@ public class ControleDeProdutoPO extends BasePO{
         verificar_janela_atual_utilizando_titulo("Controle de Produtos");
     }
 
-    public String mensagem_ao_tentar_cadastrar_produto_com_campos_vazios(){
-        abrir_janela_de_cadastro_de_produtos();
-        btn_salvar.click();
+    public String pegar_mensagem_de_alerta_janela_produto(){
         String alerta = alert_janela_produto.getText();
         return alerta;
     }
+
 }

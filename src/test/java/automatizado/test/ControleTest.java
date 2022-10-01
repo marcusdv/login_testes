@@ -7,6 +7,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import automatizado.builders.ProdutoBuilder;
 import automatizado.page.ControleDeProdutoPO;
 import automatizado.page.LoginPO;
 import java.lang.Character;
@@ -26,7 +27,7 @@ public class ControleTest extends BaseTest{
     
     @Test
     public void TC001_deve_manter_na_pagina_ao_clicar_na_logo(){
-        controle_page.btn_criar.click();
+        controle_page.logo.click();
         login_page.verificar_janela_atual_utilizando_titulo("Controle de Produtos");
     }
 
@@ -38,9 +39,8 @@ public class ControleTest extends BaseTest{
 
     @Test
     public void TC003_deve_trazer_na_tabela_os_ultimos_produtos_cadastrados(){
-
+        controle_page.lista_de_produtos_ja_cadastrados.isDisplayed();
     }
-
     /***
      * Pega a tabela de titulos e transforma em uma Array.
      * Itera pela array verificando:
@@ -79,20 +79,70 @@ public class ControleTest extends BaseTest{
         controle_page.fechar_janela_com_botao_escolhido(controle_page.btn_sair);
     }
 
+    /**
+     * Tentei testar com dois métodos, o comentado é com um loop 
+     * e o outro é utilizando uma classe builder
+     */
     @Test
     public void TC008_deve_mostrar_mensagem_ao_tentar_salvar_produto_sem_preencher_campos(){
-        String alerta = controle_page.mensagem_ao_tentar_cadastrar_produto_com_campos_vazios();
-        assertEquals("Todos os campos são obrigatórios para o cadastro!", alerta);
-    }
+        controle_page.abrir_janela_de_cadastro_de_produtos();
+        String mensagem = "Todos os campos são obrigatórios para o cadastro!";
     
+        // Array com valores preenchidos para os campos de cadastro de produtos (Código, Nome, Quantidade, Valor, Data)
+        // A cada loop o valor de um elemento do array é substituído por ""
+        // Depois é verificada a mensagem de erro por campo vazio, um de cada vez.
+        // for(int x = 0; x < 5; x++){
+        //     String[] campos_preenchidos = {"29330", "Lápis", "23", "1,00", "30092022"};
+        //     campos_preenchidos[x] = "";
+        //     controle_page.cadastrar_um_produto(campos_preenchidos);
+        //     String alerta = controle_page.pegar_mensagem_de_alerta_janela_produto();
+        //     assertEquals("Todos os campos são obrigatórios para o cadastro!", alerta);
+        // }
 
+        // Utilizando builder
+        ProdutoBuilder sem_codigo = new ProdutoBuilder(controle_page);
+        ProdutoBuilder sem_nome = new ProdutoBuilder(controle_page);
+        ProdutoBuilder sem_quantidade = new ProdutoBuilder(controle_page);
+        ProdutoBuilder sem_valor = new ProdutoBuilder(controle_page);
+        ProdutoBuilder sem_data = new ProdutoBuilder(controle_page);
+        
+        sem_codigo
+        .adicionar_codigo("")
+        .builder();
+        String alerta = controle_page.pegar_mensagem_de_alerta_janela_produto();
+        assertEquals(mensagem, alerta);
+
+        sem_nome
+        .adicionar_nome("")
+        .builder();
+        alerta = controle_page.pegar_mensagem_de_alerta_janela_produto();
+        assertEquals(mensagem, alerta);
+
+        sem_quantidade
+        .adicionar_quantidade(null)
+        .builder();
+        alerta = controle_page.pegar_mensagem_de_alerta_janela_produto();
+        assertEquals(mensagem, alerta);
+
+        sem_valor
+        .adicionar_valor(null)
+        .builder();
+        alerta = controle_page.pegar_mensagem_de_alerta_janela_produto();
+        assertEquals(mensagem, alerta);
+
+        sem_data
+        .adicionar_data("")
+        .builder();
+        alerta = controle_page.pegar_mensagem_de_alerta_janela_produto();
+        assertEquals(mensagem, alerta);
+    }
     /**
      * Erro
      * Botão não está fechando a janela.
      */
     @Test
-    public void TC008_deve_fechar_alert_box_ao_clicar_em_x_da_alert_box(){
-        String alerta = controle_page.mensagem_ao_tentar_cadastrar_produto_com_campos_vazios();
+    public void TC008_deve_fechar_alert_box_ao_clicar__x_da_alert_box(){
+        String alerta = controle_page.pegar_mensagem_de_alerta_janela_produto();
         controle_page.btn_x_fechar_da_alert_box.click();
         assertNotEquals("Todos os campos são obrigatórios para o cadastro!", alerta);
     }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="automatizado.AppTest" time="0.003" errors="0" skipped="0">
+<testsuite tests="7" failures="0" name="automatizado.test.LoginTest" time="1.652" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_211\jre\bin"/>
@@ -65,5 +65,11 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="automatizado.AppTest" name="testApp" time="0.003"/>
+  <testcase classname="automatizado.test.LoginTest" name="TC001_nao_deve_efetuar_login_com_email_e_senha_vazios" time="0.289"/>
+  <testcase classname="automatizado.test.LoginTest" name="TC002_nao_deve_efetuar_login_sem_senha" time="0.227"/>
+  <testcase classname="automatizado.test.LoginTest" name="TC003_nao_deve_efetuar_login_sem_email" time="0.206"/>
+  <testcase classname="automatizado.test.LoginTest" name="TC004_nao_deve_efetuar_login_com_email_e_senha_invalidos" time="0.22"/>
+  <testcase classname="automatizado.test.LoginTest" name="TC005_nao_deve_efetuar_login_com_email_valido_e_senha_invalida" time="0.224"/>
+  <testcase classname="automatizado.test.LoginTest" name="TC006_nao_deve_efetuar_login_com_email_invalido_e_senha_valida" time="0.221"/>
+  <testcase classname="automatizado.test.LoginTest" name="TC007_deve_efetuar_login_com_email_e_senha_validas" time="0.265"/>
 </testsuite>

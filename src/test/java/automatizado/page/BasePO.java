@@ -14,7 +14,6 @@ public abstract class BasePO {
     // Driver base que será usado pelas pages
     protected WebDriver driver;
 
-
     /**
      * Construtor base para criação da PageFactory
      * @param driver

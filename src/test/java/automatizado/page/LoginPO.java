@@ -31,15 +31,12 @@ public class LoginPO extends BasePO{
         input_senha.clear();
         input_email.sendKeys(email);
         input_senha.sendKeys(senha);
-        efetuar_login();
+        btn_entrar.click();
     }
     
+    // Obtém o titúlo apartir do documento. Cuidado!
     public String obter_titulo_da_pagina(){
         return driver.getTitle();
-    }
-
-    public void efetuar_login(){
-        btn_entrar.click();
     }
 
     public String obter_mensagem(){
